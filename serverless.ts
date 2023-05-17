@@ -1,4 +1,4 @@
-import getVisits from "@functions/getVisits";
+import { getVisits, hit } from "@functions/index";
 import type { AWS } from "@serverless/typescript";
 import dynamodbTables from "src/resources/dynamodb-tables";
 
@@ -35,7 +35,7 @@ const serverlessConfiguration: AWS = {
     ],
   },
   // import the function via paths
-  functions: { getVisits },
+  functions: { getVisits, hit },
   package: { individually: true },
   custom: {
     esbuild: {
