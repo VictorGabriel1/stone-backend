@@ -1,12 +1,8 @@
-// import type { ValidatedEventAPIGatewayProxyEvent } from "@libs/api-gateway";
 import { formatJSONResponse } from "@libs/api-gateway";
 import { middyfy } from "@libs/lambda";
 import { APIGatewayEvent } from "aws-lambda";
 import getDB from "src/utils/getDB";
-// import getDB from "src/utils/getDB";
 import updateDB from "src/utils/updateDB";
-
-// import schema from "./schema";
 
 const hit = async (_event: APIGatewayEvent) => {
   return getDB({
