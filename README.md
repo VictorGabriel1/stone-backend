@@ -68,7 +68,7 @@ Any tsconfig.json can be used, but if you do, set the environment variable `TS_N
 ### My endpoints
 
 endpoints:
-POST - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/get-user
-GET - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/get-visits
-POST - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/hit
-POST - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/create-user
+- POST - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/get-user
+- GET - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/get-visits
+- POST - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/hit
+- POST - https://k16fuos1md.execute-api.us-east-1.amazonaws.com/dev/create-user
