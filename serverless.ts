@@ -1,4 +1,4 @@
-import { getVisits, hit } from "@functions/index";
+import { createUser, getUser, getVisits, hit } from "@functions/index";
 import type { AWS } from "@serverless/typescript";
 import dynamodbTables from "src/resources/dynamodb-tables";
 
@@ -30,12 +30,15 @@ const serverlessConfiguration: AWS = {
           "dynamodb:UpdateItem",
           "dynamodb:DeleteItem",
         ],
-        Resource: [{ "Fn::GetAtt": ["visitsTable", "Arn"] }],
+        Resource: [
+          { "Fn::GetAtt": ["visitsTable", "Arn"] },
+          { "Fn::GetAtt": ["usersTable", "Arn"] },
+        ],
       },
     ],
   },
   // import the function via paths
-  functions: { getVisits, hit },
+  functions: { getUser, getVisits, hit, createUser },
   package: { individually: true },
   custom: {
     esbuild: {

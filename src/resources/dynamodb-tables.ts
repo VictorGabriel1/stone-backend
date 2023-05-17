@@ -12,6 +12,19 @@ export default {
       },
     },
   },
+  usersTable: {
+    Type: "AWS::DynamoDB::Table",
+    DeletionPolicy: "Delete",
+    Properties: {
+      TableName: "usersTable",
+      AttributeDefinitions: [{ AttributeName: "email", AttributeType: "S" }],
+      KeySchema: [{ AttributeName: "email", KeyType: "HASH" }],
+      ProvisionedThroughput: {
+        ReadCapacityUnits: "1",
+        WriteCapacityUnits: "1",
+      },
+    },
+  },
   //   TasksTable: {
   //     Type: "AWS::DynamoDB::Table",
   //     DeletionPolicy: "Delete",
