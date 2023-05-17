@@ -1,24 +1,24 @@
 import { formatJSONResponse } from "@libs/api-gateway";
 import * as AWS from "aws-sdk";
 
-interface getDBParams {
+interface updateDBParams {
   TableName: string;
   Key: {
     [key: string]: any;
   };
+  UpdateExpression: string;
+  ExpressionAttributeValues: {
+    [key: string]: any;
+  };
+  ReturnValues: "ALL_NEW";
 }
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-export default async function getDB(params: getDBParams) {
+export default async function updateDB(params: updateDBParams) {
   try {
-    const response = await dynamoDb.get(params).promise();
-    if (response.Item === undefined) {
-      throw formatJSONResponse({
-        message: "Not found in DB!",
-        statusCode: 404,
-      });
-    }
+    const response = await dynamoDb.update(params).promise();
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
